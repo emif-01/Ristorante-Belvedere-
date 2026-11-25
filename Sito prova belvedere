@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- Impostazioni base della pagina e adattamento agli smartphone -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trattoria Alta Collina — Cucina Tradizionale Reggiana</title>
+
+  <!-- Font eleganti presi da Google Fonts (Serif per i titoli, Sans-Serif per leggere bene) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* VARIABILI DI COLORE: così se vuoi cambiare colore lo fai in un solo punto */
+    :root {
+      --bg-crema: #FAF7F2;      /* Sfondo caldo tipo carta/panna */
+      --bg-card: #FFFFFF;       /* Sfondo delle schede piatti/box */
+      --testo: #2C2420;         /* Marrone scuro per massima leggibilità */
+      --testo-soft: #63564E;    /* Marrone più chiaro per descrizioni */
+      --verde-bosco: #3A4F41;   /* Colore principale (alta collina / Appennino) */
+      --terracotta: #8C3B2B;    /* Colore secondario (calore / cucina) */
+      --bordo: #E6DDD2;         /* Bordini sottili */
+    }
+
+    /* Reset base per avere misure prevedibili su tutti i browser */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Scorrimento fluido quando clicchi sui link del menu in alto */
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-crema);
+      color: var(--testo);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Lora', serif;
+    }
+
+    /* Contenitore centrato con margine ai lati */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* BARRA DI NAVIGAZIONE IN ALTO */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--bordo);
+      z-index: 100;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--verde-bosco);
+      text-decoration: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--testo);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: var(--terracotta);
+    }
+
+    /* SEZIONE INIZIALE (HERO) */
+    .hero {
+      padding: 72px 0 64px;
+      text-align: center;
+      border-bottom: 1px solid var(--bordo);
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #E8EFEA;
+      color: var(--verde-bosco);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--testo);
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 28px;
+      color: var(--testo-soft);
+      font-size: 1.05rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--verde-bosco);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: #2c3d32;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--terracotta);
+      border: 1.5px solid var(--terracotta);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--terracotta);
+      color: #fff;
+    }
+
+    /* SEZIONI GENERALI */
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--bordo);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: var(--verde-bosco);
+    }
+
+    .section-sub {
+      color: var(--testo-soft);
+      margin-bottom: 32px;
+      max-width: 680px;
+    }
+
+    /* GRIGLIA DEL MENU */
+    .menu-categoria {
+      margin-bottom: 36px;
+    }
+
+    .menu-categoria h3 {
+      font-size: 1.35rem;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--bordo);
+    }
+
+    .piatti-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .piatto {
+      background-color: var(--bg-card);
+      border: 1px solid var(--bordo);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .piatto-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .piatto-nome {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .piatto-prezzo {
+      font-weight: 600;
+      color: var(--verde-bosco);
+      white-space: nowrap;
+    }
+
+    .piatto-desc {
+      font-size: 0.92rem;
+      color: var(--testo-soft);
+      margin-bottom: 8px;
+    }
+
+    .allergeni {
+      font-size: 0.78rem;
+      color: #7A5C48;
+      background-color: #F6F1EA;
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* BOX INFO E CONTATTI */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .info-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--bordo);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .info-box h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--verde-bosco);
+    }
+
+    .info-box p {
+      font-size: 0.94rem;
+      color: var(--testo-soft);
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.88rem;
+      color: var(--testo-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTESTAZIONE E MENU DI NAVIGAZIONE -->
+  <header>
+    <div class="nav-wrap">
+      <a href="#" class="logo">Trattoria Alta Collina</a>
+      <nav>
+        <a href="#chi-siamo">Chi Siamo</a>
+        <a href="#menu">Menu</a>
+        <a href="#contatti">Orari e Dove Siamo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SCHERMATA INIZIALE -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Appennino Reggiano • Alta Collina</span>
+      <h1>La cucina reggiana di collina, fatta come una volta</h1>
+      <p>
+        Sfoglia tirata a mano, ricette di famiglia, prodotti del territorio e l'aria fresca dell'alta collina.
+        Un posto sincero dove fermarsi a mangiare bene senza fretta.
+      </p>
+      <div class="btn-group">
+        <a href="#menu" class="btn btn-primary">Scopri il Menu</a>
+        <a href="#contatti" class="btn btn-secondary">Prenota o Chiama</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo">
+    <div class="container">
+      <h2 class="section-title">La Nostra Tradizione</h2>
+      <p class="section-sub">
+        Siamo sulle colline reggiane, dove la tradizione contadina incontra la stagionalità.
+        Seguiamo i ritmi dell'anno: d'inverno e in primavera dominano sfoglia, brodi, erbazzoni e tortelli;
+        quando arriva la stagione giusta arrivano funghi, castagne e piatti più freschi.
+      </p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="container">
+      <h2 class="section-title">Il Menu</h2>
+      <p class="section-sub">
+        Puoi modificare facilmente piatti, descrizioni e prezzi direttamente qui dentro il file <code>index.html</code>.
+      </p>
+
+      <!-- ANTIPASTI -->
+      <div class="menu-categoria">
+        <h3>Antipasti</h3>
+        <div class="piatti-grid">
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Gnocco fritto con salumi della casa</span>
+              <span class="piatto-prezzo">€ 11,00</span>
+            </div>
+            <p class="piatto-desc">Caldo e gonfio, servito con salumi selezionati e squacquerone.</p>
+            <span class="allergeni">Allergeni: glutine, latte</span>
+          </div>
+
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Erbazzone di collina</span>
+              <span class="piatto-prezzo">€ 8,50</span>
+            </div>
+            <p class="piatto-desc">Cotto al forno con erbette di campo, cipollotto e Parmigiano Reggiano.</p>
+            <span class="allergeni">Allergeni: glutine, latte</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRIMI PIATTI -->
+      <div class="menu-categoria">
+        <h3>Primi della Tradizione</h3>
+        <div class="piatti-grid">
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Tortelli verdi al burro e Parmigiano</span>
+              <span class="piatto-prezzo">€ 13,00</span>
+            </div>
+            <p class="piatto-desc">Pasta fresca fatta in casa con ripieno di bietole/spinaci e ricotta.</p>
+            <span class="allergeni">Allergeni: glutine, uova, latte</span>
+          </div>
+
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Cappelletti in brodo di cappone</span>
+              <span class="piatto-prezzo">€ 14,00</span>
+            </div>
+            <p class="piatto-desc">Chiusi a mano uno a uno secondo l'antica ricetta reggiana.</p>
+            <span class="allergeni">Allergeni: glutine, uova, latte</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECONDI E DOLCI -->
+      <div class="menu-categoria">
+        <h3>Secondi e Dolci</h3>
+        <div class="piatti-grid">
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Brasato al Lambrusco con patate</span>
+              <span class="piatto-prezzo">€ 17,00</span>
+            </div>
+            <p class="piatto-desc">Cottura lenta a fuoco dolce con patate al forno profumate al rosmarino.</p>
+            <span class="allergeni">Allergeni: solfiti (vino)</span>
+          </div>
+
+          <div class="piatto">
+            <div class="piatto-top">
+              <span class="piatto-nome">Torta di riso o Zuppa inglese</span>
+              <span class="piatto-prezzo">€ 6,50</span>
+            </div>
+            <p class="piatto-desc">Dolci fatti in casa secondo la disponibilità del giorno.</p>
+            <span class="allergeni">Allergeni: glutine, uova, latte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORARI E DOVE SIAMO -->
+  <section id="contatti">
+    <div class="container">
+      <h2 class="section-title">Orari e Dove Siamo</h2>
+      <p class="section-sub">
+        Sostituisci questi dati di esempio con l'indirizzo reale, il telefono e gli orari del ristorante.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Orari di Apertura</h3>
+          <p><strong>Pranzo:</strong> Sabato e Domenica 12:00 – 15:00</p>
+          <p><strong>Cena:</strong> Ven – Sab – Dom 19:30 – 22:30</p>
+          <p><strong>Chiuso:</strong> Lunedì – Giovedì (salvo aperture straordinarie)</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Posizione</h3>
+          <p>Via dell'Alta Collina, 12</p>
+          <p>Appennino Reggiano (RE)</p>
+          <p><a href="https://maps.google.com" target="_blank" rel="noopener">Apri su Google Maps →</a></p>
+        </div>
+
+        <div class="info-box">
+          <h3>Prenotazioni</h3>
+          <p>Per tavoli e informazioni chiamaci direttamente:</p>
+          <p><a href="tel:+390522000000"><strong>+39 0522 000000</strong></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Trattoria Alta Collina • Sito dimostrativo creato su GitHub</p>
+  </footer>
+
+</body>
+</html>
