@@ -37,6 +37,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: clip;
     }
 
     body {
@@ -45,6 +46,13 @@
       font-family: var(--font-body);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     /* Etichette piccole in maiuscolo */
@@ -66,6 +74,7 @@
     }
 
     .container {
+      width: 100%;
       max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
@@ -75,8 +84,9 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 14px 28px;
+      padding: 13px 24px;
       border-radius: 999px;
       font-family: var(--font-sans);
       font-size: 14px;
@@ -118,7 +128,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(244, 237, 225, 0.85);
+      background: rgba(244, 237, 225, 0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-soft);
     }
@@ -126,24 +136,25 @@
     .nav-inner {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
 
     .brand {
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       color: var(--base-text);
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
     }
 
     .nav-links a:not(.btn) {
@@ -153,6 +164,7 @@
       color: var(--base-text);
       text-decoration: none;
       opacity: 0.85;
+      white-space: nowrap;
     }
 
     .nav-links a:not(.btn):hover {
@@ -160,21 +172,15 @@
       color: var(--accent);
     }
 
-    @media (max-width: 760px) {
-      .nav-links a:not(.btn) {
-        display: none;
-      }
-    }
-
     /* =========================================================
        3. HERO (Schermata principale con immagine a tutta larghezza)
        ========================================================= */
     .hero {
       position: relative;
-      min-height: 92vh;
+      min-height: 88vh;
       display: flex;
       align-items: flex-end;
-      padding: 140px 0 84px;
+      padding: 130px 0 72px;
       background-color: var(--dark-bg);
       color: var(--dark-text);
       overflow: hidden;
@@ -202,58 +208,59 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-      line-height: 0.95;
-      margin-bottom: 22px;
+      font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+      line-height: 0.98;
+      margin-bottom: 20px;
       color: #fff8ee;
     }
 
     .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
       color: rgba(248, 239, 226, 0.9);
-      margin-bottom: 34px;
+      margin-bottom: 30px;
       max-width: 600px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     /* =========================================================
        4. SEZIONE MENU CLASSICO (Su sfondo crema)
        ========================================================= */
     .section-pad {
-      padding: 104px 0;
+      padding: 96px 0;
     }
 
     .section-header {
       max-width: 680px;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
     .section-header h2 {
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 12px;
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 36px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
     }
 
     .dish-card {
       border-top: 1px solid var(--border-soft);
       padding-top: 20px;
+      min-width: 0;
     }
 
     .dish-img-wrap {
       aspect-ratio: 4 / 3;
       overflow: hidden;
       border-radius: 6px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       background-color: #e5dac8;
     }
 
@@ -277,7 +284,7 @@
     }
 
     .dish-head h3 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
     }
 
     .dish-price {
@@ -285,6 +292,7 @@
       font-weight: 600;
       font-size: 1.05rem;
       color: var(--accent);
+      white-space: nowrap;
     }
 
     .dish-note {
@@ -306,30 +314,26 @@
 
     .seasonal-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 48px;
       align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .seasonal-layout {
-        grid-template-columns: 1fr;
-      }
     }
 
     .seasonal-list {
       list-style: none;
-      margin-top: 32px;
+      margin-top: 28px;
     }
 
     .seasonal-list li {
-      padding: 18px 0;
+      padding: 16px 0;
       border-bottom: 1px solid rgba(241, 234, 216, 0.18);
       font-family: var(--font-display);
-      font-size: 1.55rem;
+      font-size: clamp(1.25rem, 2.5vw, 1.55rem);
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      gap: 8px 16px;
     }
 
     .seasonal-list li span {
@@ -358,8 +362,8 @@
 
     .events-menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
     }
 
     .event-menu-card {
@@ -367,24 +371,25 @@
       border: 1px solid var(--border-soft);
       border-top: 3px solid var(--accent);
       border-radius: 8px;
-      padding: 32px 28px;
+      padding: 28px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
+      min-width: 0;
     }
 
     .event-menu-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 16px;
+      gap: 12px;
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border-soft);
     }
 
     .event-menu-top h3 {
-      font-size: 1.75rem;
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
       margin-bottom: 4px;
     }
 
@@ -399,7 +404,7 @@
 
     .event-fixed-price {
       font-family: var(--font-display);
-      font-size: 1.85rem;
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
       color: var(--accent);
       white-space: nowrap;
     }
@@ -426,7 +431,7 @@
     .event-dishes-list li {
       padding: 6px 0;
       border-bottom: 1px dashed rgba(42, 29, 20, 0.12);
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     .event-dishes-list li:last-child {
@@ -438,15 +443,9 @@
        ========================================================= */
     .story-layout {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 48px;
       align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .story-layout {
-        grid-template-columns: 1fr;
-      }
     }
 
     .story-photo img {
@@ -458,10 +457,10 @@
 
     .owner-quote {
       font-family: var(--font-display);
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.65rem, 3.5vw, 2.8rem);
       line-height: 1.15;
       color: var(--accent);
-      margin: 20px 0 24px;
+      margin: 18px 0 22px;
     }
 
     /* =========================================================
@@ -478,15 +477,9 @@
 
     .events-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 48px;
       align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .events-layout {
-        grid-template-columns: 1fr;
-      }
     }
 
     .events-photo img {
@@ -502,7 +495,7 @@
     .reviews-box {
       border: 1px dashed rgba(42, 29, 20, 0.3);
       border-radius: 8px;
-      padding: 56px 32px;
+      padding: 44px 24px;
       text-align: center;
       max-width: 720px;
       margin: 0 auto;
@@ -523,14 +516,15 @@
     .allergens-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 32px;
+      gap: 18px;
+      margin-top: 28px;
     }
 
     .allergen-item {
       border: 1px solid rgba(244, 237, 225, 0.16);
       padding: 18px;
       border-radius: 6px;
+      min-width: 0;
     }
 
     .allergen-item strong {
@@ -546,7 +540,7 @@
     .footer-cta {
       background-color: var(--dark-bg);
       color: var(--dark-text);
-      padding: 96px 0 56px;
+      padding: 80px 0 48px;
       border-top: 1px solid rgba(248, 239, 226, 0.12);
     }
 
@@ -555,20 +549,82 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 32px;
-      padding-bottom: 56px;
+      gap: 28px;
+      padding-bottom: 48px;
       border-bottom: 1px solid rgba(248, 239, 226, 0.14);
     }
 
     .footer-bottom {
-      padding-top: 28px;
+      padding-top: 24px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       font-family: var(--font-sans);
       font-size: 13px;
       opacity: 0.75;
+    }
+
+    /* =========================================================
+       10. ADATTAMENTO TELEFONO (Schermi sotto i 760px)
+       ========================================================= */
+    @media (max-width: 760px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .nav-inner {
+        padding: 10px 18px;
+      }
+
+      .brand {
+        font-size: 1.15rem;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a:not(.btn) {
+        display: none;
+      }
+
+      header .btn {
+        padding: 9px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 82vh;
+        padding: 112px 0 56px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .section-pad {
+        padding: 64px 0;
+      }
+
+      .section-header {
+        margin-bottom: 32px;
+      }
+
+      .seasonal-layout,
+      .story-layout,
+      .events-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .event-menu-card {
+        padding: 22px 18px;
+      }
+
+      .footer-cta {
+        padding: 60px 0 36px;
+      }
     }
   </style>
 </head>
