@@ -162,7 +162,7 @@
 
     @media (max-width: 760px) {
       .nav-links a:not(.btn) {
-        display: none; /* Su telefono lascia pulito solo logo + pulsante Chiama */
+        display: none;
       }
     }
 
@@ -348,6 +348,92 @@
     }
 
     /* =========================================================
+       5B. EVENTI STAGIONALI (Solo elenco piatti + prezzo unico)
+       ========================================================= */
+    .seasonal-events {
+      background-color: #ece2d0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .events-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .event-menu-card {
+      background-color: var(--base-bg);
+      border: 1px solid var(--border-soft);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .event-menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .event-menu-top h3 {
+      font-size: 1.75rem;
+      margin-bottom: 4px;
+    }
+
+    .event-date {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    .event-fixed-price {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .event-course-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .event-course-label:first-child {
+      margin-top: 0;
+    }
+
+    .event-dishes-list {
+      list-style: none;
+    }
+
+    .event-dishes-list li {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(42, 29, 20, 0.12);
+      font-size: 1rem;
+    }
+
+    .event-dishes-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* =========================================================
        6. SEZIONE STORIA E CITAZIONE
        ========================================================= */
     .story-layout {
@@ -495,6 +581,7 @@
       <nav class="nav-links">
         <a href="#menu">La Carta</a>
         <a href="#stagione">Offerte Stagionali</a>
+        <a href="#eventi-stagionali">Eventi Stagionali</a>
         <a href="#storia">La Casa</a>
         <a href="#eventi">Eventi</a>
         <a href="#allergeni">Allergeni</a>
@@ -563,12 +650,12 @@
           <p class="dish-note">Ripieno dolce-sapido della tradizione emiliana, condito con burro e salvia.</p>
         </article>
 
-         <!-- Piatto 3 -->
+        <!-- Piatto 3 -->
         <article class="dish-card">
           <div class="dish-img-wrap">
             <img
               src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R0aAaSKG4SD-dM3cdJBCV3Hevdboz333Sn4JFOYIFpXrmnNkFRlkE172oIGlGNL3_Url0ucwyeD8CD1Ji0vwsLRdzByKldUFGWTy3BtCYiQJk8WDjz2worXbnW2wSUM669m_C27IXSruVG=w172-h288-n-k-no-nu"
-              alt="Tortelli di selvaggina "
+              alt="Tortelli di selvaggina"
             />
           </div>
           <div class="dish-head">
@@ -577,9 +664,6 @@
           </div>
           <p class="dish-note">Misto di cinghiale, capriolo e lepricorno</p>
         </article>
-      </div>
-    </div>
-  </section>
 
         <!-- Piatto 4 -->
         <article class="dish-card">
@@ -595,16 +679,13 @@
           </div>
           <p class="dish-note">Chiusi a mano uno per uno e serviti nel brodo artigianale e profumato della casa.</p>
         </article>
-      </div>
-    </div>
-  </section>
 
-   <!-- Piatto 5 -->
+        <!-- Piatto 5 -->
         <article class="dish-card">
           <div class="dish-img-wrap">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR19QXwep-2tmNf7QiG0vtfEqBgme9cB4p1OzZxnbbvag&s=10"
-              alt="Cappelletti in brodo"
+              alt="Passatelli in brodo"
             />
           </div>
           <div class="dish-head">
@@ -616,7 +697,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- 3. PIATTI DI STAGIONE -->
   <section id="stagione" class="section-pad seasonal">
@@ -641,6 +721,81 @@
           src="https://images.pexels.com/photos/12566601/pexels-photo-12566601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt="Cesto di funghi porcini e castagne sul legno"
         />
+      </div>
+    </div>
+  </section>
+
+  <!-- 3B. EVENTI STAGIONALI (Solo elenco piatti e prezzo unico) -->
+  <section id="eventi-stagionali" class="section-pad seasonal-events">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" style="color: var(--accent);">Appuntamenti in calendario</span>
+        <h2>Eventi stagionali</h2>
+        <p>Menù dedicati alle ricorrenze e ai momenti dell'anno, con elenco delle portate e quota unica a persona.</p>
+      </div>
+
+      <div class="events-menu-grid">
+        <!-- Evento 1 -->
+        <article class="event-menu-card">
+          <div>
+            <div class="event-menu-top">
+              <div>
+                <h3>Pranzo di Ferragosto</h3>
+                <div class="event-date">Sabato 15 Agosto</div>
+              </div>
+              <div class="event-fixed-price">€ 35</div>
+            </div>
+
+            <div class="event-course-label">Antipasti</div>
+            <ul class="event-dishes-list">
+              <li>Gnocco fritto e salumi del territorio</li>
+              <li>Torta d'erbe cotta al forno</li>
+            </ul>
+
+            <div class="event-course-label">Primi piatti</div>
+            <ul class="event-dishes-list">
+              <li>Tortelli verdi al burro di montagna</li>
+              <li>Tagliatelle fatte in casa al ragù</li>
+            </ul>
+
+            <div class="event-course-label">Secondi e dolce</div>
+            <ul class="event-dishes-list">
+              <li>Arrosto misto con contorni di stagione</li>
+              <li>Dolce della casa</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Evento 2 -->
+        <article class="event-menu-card">
+          <div>
+            <div class="event-menu-top">
+              <div>
+                <h3>Menù pranzo S. Stefano</h3>
+                <div class="event-date">Giovedì 26 Dicembre</div>
+              </div>
+              <div class="event-fixed-price">€ 40</div>
+            </div>
+
+            <div class="event-course-label">Antipasti</div>
+            <ul class="event-dishes-list">
+              <li>Salumi tipici, gnocco caldo e sottaceti</li>
+              <li>Sformatino con crema al Parmigiano</li>
+            </ul>
+
+            <div class="event-course-label">Primi piatti</div>
+            <ul class="event-dishes-list">
+              <li>Cappelletti in brodo</li>
+              <li>Tortelli di zucca</li>
+            </ul>
+
+            <div class="event-course-label">Secondi e dolce</div>
+            <ul class="event-dishes-list">
+              <li>Cotechino con purè e bollito misto</li>
+              <li>Dolce delle feste</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>
