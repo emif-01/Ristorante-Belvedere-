@@ -226,7 +226,28 @@
       flex-wrap: wrap;
       gap: 12px;
     }
+.hero-logo-wrap {
+      margin-bottom: 20px;
+    }
 
+    .hero-logo-wrap--center {
+      text-align: center;
+    }
+
+    .hero-logo {
+      display: inline-block;
+      max-height: 110px;
+      width: auto;
+      background-color: rgba(244, 237, 225, 0.94);
+      padding: 10px 16px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-logo-wrap--center .hero-logo {
+      display: block;
+      margin: 0 auto;
+    }
     /* =========================================================
        4. SEZIONE MENU CLASSICO (Su sfondo crema)
        ========================================================= */
@@ -656,6 +677,11 @@
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
+      <div class="container hero-content">
+      <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Logo Ristorante Belvedere dal 1968" class="hero-logo" />
+      </div>
+      <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
       <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
       <h1>Ristorante Belvedere</h1>
       <p>Pietanze fatte a mano, un calice di vino e la storia reggiana.</p>
