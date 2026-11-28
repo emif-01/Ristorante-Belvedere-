@@ -564,6 +564,39 @@
       padding: 80px 0 48px;
       border-top: 1px solid rgba(248, 239, 226, 0.12);
     }
+    .brand-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-brand-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo-chip {
+      background-color: var(--base-bg);
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-logo-chip img {
+      height: 54px;
+      width: auto;
+      object-fit: contain;
+    }
 
     .footer-top {
       display: flex;
@@ -654,7 +687,10 @@
   <!-- BARRA IN ALTO -->
   <header>
     <div class="nav-inner">
-      <a href="#" class="brand">Menù</a>
+      <a href="#" class="brand-group">
+     <img src="logo.png" alt="Logo Ristorante Belvedere dal 1968" class="header-logo" />
+     <span class="brand">Menù</span>
+   </a>
       <nav class="nav-links">
         <a href="#menu">La Carta</a>
         <a href="#stagione">Offerte Stagionali</a>
@@ -677,12 +713,7 @@
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
-      <div class="container hero-content">
-      <div class="hero-logo-wrap">
-        <img src="logo.png" alt="Logo Ristorante Belvedere dal 1968" class="hero-logo" />
-      </div>
-      <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
-      <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
+       <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
       <h1>Ristorante Belvedere</h1>
       <p>Pietanze fatte a mano, un calice di vino e la storia reggiana.</p>
       <div class="hero-actions">
@@ -1028,16 +1059,21 @@
   <!-- 8. CONTATTI E CHIAMATA -->
   <footer class="footer-cta">
     <div class="container">
-      <div class="footer-top">
-        <div>
-          <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
-          <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px;">Vieni a trovarci a Ristorante Belvedere </h2>
-          <p style="opacity: 0.85;">Per prenotare un tavolo o chiedere informazioni sui piatti del giorno.</p>
-        </div>
-        <div>
-          <a href="tel:39333 491 9100" class="btn btn-red">Chiama per prenotare</a>
-        </div>
-      </div>
+     <div class="footer-top">
+     <div class="footer-brand-box">
+       <div class="footer-logo-chip">
+         <img src="logo.png" alt="Logo Ristorante Belvedere dal 1968" />
+       </div>
+       <div>
+         <span class="eyebrow" style="color: #e5b55a;">San Giovanni di Querciola · Appennino reggiano</span>
+         <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px;">Vieni a trovarci a Ristorante Belvedere </h2>
+         <p style="opacity: 0.85;">Per prenotare un tavolo o chiedere informazioni sui piatti del giorno.</p>
+       </div>
+     </div>
+     <div>
+       <a href="tel:39333 491 9100" class="btn btn-red">Chiama per prenotare</a>
+     </div>
+   </div>
 
       <div class="footer-bottom">
         <span>Ristorante Belvedere  — San Giovanni di Querciola (RE)</span>
