@@ -366,54 +366,134 @@
     }
 
     /* =========================================================
-       5. SEZIONE STAGIONALE (Su sfondo verde bosco #2f3a22)
+       5. CARTA DEI VINI (Su sfondo rosso vino #5c1a18)
        ========================================================= */
-    .seasonal {
-      background-color: var(--seasonal-bg);
-      color: var(--seasonal-text);
+    .wines-section {
+      background-color: var(--wine-bg);
+      color: var(--wine-text);
     }
 
-    .seasonal .eyebrow {
+    .wines-section .eyebrow {
       color: var(--seasonal-accent);
     }
 
-    .seasonal-layout {
+    .wines-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+      margin-top: 36px;
     }
 
-    .seasonal-list {
+    .wine-category {
+      background-color: rgba(30, 20, 13, 0.28);
+      border: 1px solid rgba(248, 233, 220, 0.16);
+      border-top: 3px solid var(--seasonal-accent);
+      border-radius: 8px;
+      padding: 24px 22px;
+      min-width: 0;
+    }
+
+    .wine-category h3 {
+      font-size: 1.45rem;
+      color: #fff8ee;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(248, 233, 220, 0.16);
+    }
+
+    .wine-list {
       list-style: none;
-      margin-top: 28px;
     }
 
-    .seasonal-list li {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(241, 234, 216, 0.18);
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    .wine-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px dashed rgba(248, 233, 220, 0.14);
+      font-size: 0.98rem;
+    }
+
+    .wine-list li:last-child {
+      border-bottom: none;
+    }
+
+    .wine-name {
+      display: block;
+    }
+
+    .wine-sub {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      opacity: 0.72;
+    }
+
+    .wine-price {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--seasonal-accent);
+      white-space: nowrap;
+    }
+
+    /* Riquadro in fondo: Vino della casa */
+    .house-wine-box {
+      margin-top: 32px;
+      background-color: rgba(30, 20, 13, 0.42);
+      border: 1px solid rgba(229, 181, 90, 0.35);
+      border-radius: 8px;
+      padding: 26px 28px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 8px 16px;
+      align-items: center;
+      gap: 20px;
     }
 
-    .seasonal-list li span {
+    .house-wine-info h3 {
+      font-size: 1.55rem;
+      color: #fff8ee;
+      margin-bottom: 4px;
+    }
+
+    .house-wine-info p {
+      font-size: 0.98rem;
+      opacity: 0.85;
+    }
+
+    .house-wine-sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .size-pill {
+      background-color: rgba(248, 233, 220, 0.08);
+      border: 1px solid rgba(229, 181, 90, 0.4);
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-align: center;
+      min-width: 96px;
+    }
+
+    .size-pill span {
+      display: block;
       font-family: var(--font-sans);
       font-size: 11px;
-      letter-spacing: 0.14em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--seasonal-accent);
+      opacity: 0.85;
     }
 
-    .seasonal-photo img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 6px;
+    .size-pill strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--seasonal-accent);
+      margin-top: 2px;
     }
 
     /* =========================================================
@@ -732,7 +812,7 @@
 
         <nav class="dropdown-panel" id="navDropdown" aria-label="Navigazione sezioni">
           <a href="#menu">La Carta</a>
-          <a href="#stagione">Offerte Stagionali</a>
+          <a href="#stagione">I vini</a>
           <a href="#eventi-stagionali">Eventi Stagionali</a>
           <a href="#storia">La Casa</a>
           <a href="#eventi">Eventi</a>
@@ -852,170 +932,155 @@
     </div>
   </section>
 
-  <!-- 3. PIATTI DI STAGIONE -->
-  <section id="stagione" class="section-pad seasonal">
-    <div class="container seasonal-layout">
-      <div>
-        <span class="eyebrow">Secondo il bosco e l'orto</span>
-        <h2>La cucina segue le stagioni</h2>
-        <p style="margin-top: 14px; opacity: 0.9;">
-          In alta collina la carta cambia con ciò che offrono i castagneti, i boschi e gli orti attorno a San Giovanni di Querciola.
-        </p>
-
-        <ul class="seasonal-list">
-          <li>Tagliatelle ai porcini <span>Autunno</span></li>
-          <li>Tortelli di castagne <span>Autunno / Inverno</span></li>
-          <li>Strichetti con asparagi <span>Primavera</span></li>
-          <li>Gnocco e verdure dell'orto <span>Estate</span></li>
-        </ul>
-      </div>
-
-      <div class="seasonal-photo">
-        <img
-          src="https://images.pexels.com/photos/12566601/pexels-photo-12566601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Cesto di funghi porcini e castagne sul legno"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- 3B. EVENTI STAGIONALI (Solo elenco piatti e prezzo unico) -->
-  <section id="eventi-stagionali" class="section-pad seasonal-events">
+  <!-- 3. CARTA DEI VINI -->
+  <section id="vini" class="section-pad wines-section">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow" style="color: var(--accent);">Appuntamenti in calendario</span>
-        <h2>Eventi stagionali</h2>
-        <p>Menù dedicati alle ricorrenze e ai momenti dell'anno, con elenco delle portate e quota unica a persona.</p>
+        <span class="eyebrow">La nostra cantina</span>
+        <h2>I vini della casa e del territorio</h2>
+        <p style="opacity: 0.9;">
+          Una selezione pensata per accompagnare la sfoglia tirata a mano, dai Lambruschi delle colline reggiane ai bianchi fermi e frizzanti.
+        </p>
       </div>
 
-      <div class="events-menu-grid">
-        <!-- Evento 1 -->
-        <article class="event-menu-card">
-          <div>
-            <div class="event-menu-top">
+      <div class="wines-grid">
+        <!-- 1. Lambruschi -->
+        <div class="wine-category">
+          <h3>Lambruschi</h3>
+          <ul class="wine-list">
+            <li>
               <div>
-                <h3>Pranzo di Ferragosto</h3>
-                <div class="event-date">Sabato 15 Agosto</div>
+                <span class="wine-name">Lambrusco Reggiano DOC</span>
+                <span class="wine-sub">Secco · Cantina locale</span>
               </div>
-              <div class="event-fixed-price">€ 35</div>
-            </div>
-
-            <div class="event-course-label">Antipasti</div>
-            <ul class="event-dishes-list">
-              <li>Gnocco fritto e salumi del territorio</li>
-              <li>Torta d'erbe cotta al forno</li>
-            </ul>
-
-            <div class="event-course-label">Primi piatti</div>
-            <ul class="event-dishes-list">
-              <li>Tortelli verdi al burro di montagna</li>
-              <li>Tagliatelle fatte in casa al ragù</li>
-            </ul>
-
-            <div class="event-course-label">Secondi e dolce</div>
-            <ul class="event-dishes-list">
-              <li>Arrosto misto con contorni di stagione</li>
-              <li>Dolce della casa</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Evento 2 -->
-        <article class="event-menu-card">
-          <div>
-            <div class="event-menu-top">
+              <span class="wine-price">€ 14</span>
+            </li>
+            <li>
               <div>
-                <h3>Menù pranzo S. Stefano</h3>
-                <div class="event-date">Giovedì 26 Dicembre</div>
+                <span class="wine-name">Lambrusco Grasparossa</span>
+                <span class="wine-sub">Secco / Amabile</span>
               </div>
-              <div class="event-fixed-price">€ 40</div>
-            </div>
-
-            <div class="event-course-label">Antipasti</div>
-            <ul class="event-dishes-list">
-              <li>Salumi tipici, gnocco caldo e sottaceti</li>
-              <li>Sformatino con crema al Parmigiano</li>
-            </ul>
-
-            <div class="event-course-label">Primi piatti</div>
-            <ul class="event-dishes-list">
-              <li>Cappelletti in brodo</li>
-              <li>Tortelli di zucca</li>
-            </ul>
-
-            <div class="event-course-label">Secondi e dolce</div>
-            <ul class="event-dishes-list">
-              <li>Cotechino con purè e bollito misto</li>
-              <li>Dolce delle feste</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Evento 3 -->
-        <article class="event-menu-card">
-          <div>
-            <div class="event-menu-top">
+              <span class="wine-price">€ 15</span>
+            </li>
+            <li>
               <div>
-                <h3>Pranzo di Ferragosto</h3>
-                <div class="event-date">Sabato 15 Agosto</div>
+                <span class="wine-name">Lambrusco di Sorbara</span>
+                <span class="wine-sub">Fresco e profumato</span>
               </div>
-              <div class="event-fixed-price">€ 35</div>
-            </div>
+              <span class="wine-price">€ 16</span>
+            </li>
+          </ul>
+        </div>
 
-            <div class="event-course-label">Antipasti</div>
-            <ul class="event-dishes-list">
-              <li>Gnocco fritto e salumi del territorio</li>
-              <li>Torta d'erbe cotta al forno</li>
-            </ul>
-
-            <div class="event-course-label">Primi piatti</div>
-            <ul class="event-dishes-list">
-              <li>Tortelli verdi al burro di montagna</li>
-              <li>Tagliatelle fatte in casa al ragù</li>
-            </ul>
-
-            <div class="event-course-label">Secondi e dolce</div>
-            <ul class="event-dishes-list">
-              <li>Arrosto misto con contorni di stagione</li>
-              <li>Dolce della casa</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Evento 4 -->
-        <article class="event-menu-card">
-          <div>
-            <div class="event-menu-top">
+        <!-- 2. Vini rossi -->
+        <div class="wine-category">
+          <h3>Vini rossi</h3>
+          <ul class="wine-list">
+            <li>
               <div>
-                <h3>Menù pranzo S. Stefano</h3>
-                <div class="event-date">Giovedì 26 Dicembre</div>
+                <span class="wine-name">Sangiovese di Romagna</span>
+                <span class="wine-sub">Fermo · Corpo medio</span>
               </div>
-              <div class="event-fixed-price">€ 40</div>
-            </div>
+              <span class="wine-price">€ 16</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Gutturnio Colli Piacentini</span>
+                <span class="wine-sub">Fermo · Strutturato</span>
+              </div>
+              <span class="wine-price">€ 18</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Cabernet Sauvignon</span>
+                <span class="wine-sub">Colli dell'Emilia</span>
+              </div>
+              <span class="wine-price">€ 19</span>
+            </li>
+          </ul>
+        </div>
 
-            <div class="event-course-label">Antipasti</div>
-            <ul class="event-dishes-list">
-              <li>Salumi tipici, gnocco caldo e sottaceti</li>
-              <li>Sformatino con crema al Parmigiano</li>
-            </ul>
+        <!-- 3. Bianchi fermi -->
+        <div class="wine-category">
+          <h3>Bianchi fermi</h3>
+          <ul class="wine-list">
+            <li>
+              <div>
+                <span class="wine-name">Chardonnay dell'Emilia</span>
+                <span class="wine-sub">Fermo · Morbido</span>
+              </div>
+              <span class="wine-price">€ 15</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Sauvignon Colli Reggiani</span>
+                <span class="wine-sub">Fermo · Aromatico</span>
+              </div>
+              <span class="wine-price">€ 16</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Pinot Bianco</span>
+                <span class="wine-sub">Fermo · Delicato</span>
+              </div>
+              <span class="wine-price">€ 16</span>
+            </li>
+          </ul>
+        </div>
 
-            <div class="event-course-label">Primi piatti</div>
-            <ul class="event-dishes-list">
-              <li>Cappelletti in brodo</li>
-              <li>Tortelli di zucca</li>
-            </ul>
+        <!-- 4. Bianchi frizzanti -->
+        <div class="wine-category">
+          <h3>Bianchi frizzanti</h3>
+          <ul class="wine-list">
+            <li>
+              <div>
+                <span class="wine-name">Pignoletto Frizzante DOC</span>
+                <span class="wine-sub">Colli Bolognesi</span>
+              </div>
+              <span class="wine-price">€ 15</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Malvasia Secca Frizzante</span>
+                <span class="wine-sub">Colli di Parma / Reggio</span>
+              </div>
+              <span class="wine-price">€ 15</span>
+            </li>
+            <li>
+              <div>
+                <span class="wine-name">Spergola Frizzante</span>
+                <span class="wine-sub">Colline di Scandiano e Canossa</span>
+              </div>
+              <span class="wine-price">€ 16</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-            <div class="event-course-label">Secondi e dolce</div>
-            <ul class="event-dishes-list">
-              <li>Cotechino con purè e bollito misto</li>
-              <li>Dolce delle feste</li>
-            </ul>
+      <!-- In fondo: Vino della casa a caraffa -->
+      <div class="house-wine-box">
+        <div class="house-wine-info">
+          <h3>Vino della casa</h3>
+          <p>Rosso frizzante, rosso fermo o bianco frizzante servito in caraffa.</p>
+        </div>
+
+        <div class="house-wine-sizes">
+          <div class="size-pill">
+            <span>1/4 Litro</span>
+            <strong>€ 3,50</strong>
           </div>
-        </article>
+          <div class="size-pill">
+            <span>1/2 Litro</span>
+            <strong>€ 6,00</strong>
+          </div>
+          <div class="size-pill">
+            <span>1 Litro</span>
+            <strong>€ 10,00</strong>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
   <!-- 4. LA STORIA -->
   <section id="storia" class="section-pad">
     <div class="container story-layout">
